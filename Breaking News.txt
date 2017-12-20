@@ -13,4 +13,4 @@ validation while member registeration
 searching by title won't bring all the matching books 
 after saving if no changes are made just exit without asking anything
 If i emtpy the files then write to through the program it will make a useless line in the beginning
-it accepts an existing isbn
+it accepts an existing isbn-----done
