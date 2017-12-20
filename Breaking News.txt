@@ -14,3 +14,20 @@ searching by title won't bring all the matching books
 after saving if no changes are made just exit without asking anything
 If i emtpy the files then write to through the program it will make a useless line in the beginning
 it accepts an existing isbn
+
+
+___________
+OMAR UPDATE
+___________
+News:
+-When you are inserting a book, you can type R in the ISBN section to generate a random ISBN instead of typing it yourself
+-Now delete book and delete member are working more properly and in coherence with insert book and insert member.
+-Fixed some errors in menus, now it works much better.
+-Added "0) Terminate" choice to some menus.. (if the user types 0, the program terminates)
+-Fixed Return function not working
+-added print books,members and borrows in Adminstrative actions menu.
+
+To be:
+Still the choice of "5) Save" is not working and it makes the files empty.
+
+I merged my edits and your edits in one file.
