@@ -3,6 +3,9 @@
 #include <string.h>
 #include <time.h>
 #include <conio.h>
+#include <windows.h>
+
+
 typedef struct{
     int d;
     int m;
@@ -106,8 +109,9 @@ void insrt_book()
     if(validate(bookarr[n1].dop)!=2){printf("Invalid input\n");goto sd;}
     sc:scopies:printf("Copies:");gets(bookarr[n1].copies);
     if(validate(bookarr[n1].copies)!=1){printf("Invalid input\n");goto sc;}
-    sr:printf("Remaining Copies:");gets(bookarr[n1].remcopies);
-    if(validate(bookarr[n1].remcopies)!=1){printf("Invalid input\n");goto sr;}
+    ///sr:printf("Remaining Copies:");gets(bookarr[n1].remcopies);
+    ///if(validate(bookarr[n1].remcopies)!=1){printf("Invalid input\n");goto sr;}
+    strcpy(bookarr[n1].remcopies,bookarr[n1].copies);
     sca:printf("Category:");gets(bookarr[n1].ctg);
     if(validate(bookarr[n1].ctg)!=5){printf("Invalid input\n");goto sca;}
     bookarr[n1].m=0;
@@ -331,6 +335,7 @@ void bookMgmt(){
             clrscr2();
             ///getc(stdin);
             insrt_book();
+            mainmenu();
         case 50:
 
             clrscr2();
@@ -803,9 +808,42 @@ void check_over(){
    }
 }
 
+void password(){
+    int i=0;
+    char temp;
+    char* psw;
+    char ag[16]="ACCESS GRANTED\n";
+    psw=(char *) malloc(12);
+    printf("Enter password(sofckinsafe):");
+    for(i=0;1;i++){
+        temp=getch();
+        if(temp=='\b'){
+            printf("\b \b");
+            psw[i-1]='z';
+            i--;
+        }else if(temp!=13){
+            printf("%c",temp);
+            Sleep(200);
+            printf("\b \b*");
+            psw[i]=temp;}
+        else{break;}
+    }
+    psw[11]='\0';
+    if(strcmp(psw,"sofckinsafe")==0){
+        for(i=0;i<15;i++){
+            printf("%c",ag[i]);
+            Sleep(100);
+        }
+        return;
+    }
+    else{printf("Wrong Password!\n");password();}
+}
+
+
 
 int main()
 {
+    password();
     char a[50];
     n1=countln("Books.txt");
     n2=countln("Members.txt");
